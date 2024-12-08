@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Todo List App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="list droppable-element" id="list1" data-list="1">
+            <h3 class="list-title">To Do</h3>
+            <div class="card" draggable="true">Email Ruben</div>
+            <div class="card" draggable="true">Automate financial report</div>
+            <div class="first-tooltip tooltip d-none"><i class="fa fa-circle-info"></i> Enter task and click "calendar" icon below to set a due date</div>
+            <div class="list-bottom add-task d-none blue-link" data-list="1">
+                <div class="column cancel-btn">Cancel</div>
+                <div class="column calendar-icon"><i class="fa-regular fa-calendar"></i></div>
+                <div class="column save-btn" onclick="saveEvent(1);">Add</div>
+            </div>
+            <div class="second-tooltip tooltip d-none"><i class="fa fa-circle-info"></i> Click "Add" to finalize</div>
+            <div class="list-bottom new-task-btn" data-list="1">&#65291;Add Card</div>
+        </div>
+        <div class="list droppable-element" id="list2" data-list="2">
+            <h3 class="list-title">In Progress</h3>
+            <div class="card" draggable="true">Build Trello clone</div>
+            <div class="first-tooltip tooltip d-none"><i class="fa fa-circle-info"></i> Enter task and click "calendar" icon below to set a due date</div>
+            <div class="list-bottom add-task d-none blue-link" data-list="2">
+                <div class="column cancel-btn">Cancel</div>
+                <div class="column calendar-icon"><i class="fa-regular fa-calendar"></i></div>
+                <div class="column save-btn" onclick="saveEvent(2);">Add</div>
+            </div>
+            <div class="second-tooltip tooltip d-none"><i class="fa fa-circle-info"></i> Click "Add" to finalize</div>
+            <div class="list-bottom new-task-btn" data-list="2">&#65291;Add Card</div>
+        </div>
+        <div class="list droppable-element" id="list3" data-list="3">
+            <h3 class="list-title">Done</h3>
+            <div class="card" draggable="true">Email Charissa</div>
+            <div class="card" draggable="true">Catalog zines</div>
+            <div class="first-tooltip tooltip d-none"><i class="fa fa-circle-info"></i> Enter task and click "calendar" icon below to set a due date</div>
+            <div class="list-bottom add-task d-none blue-link" data-list="3">
+                <div class="column cancel-btn">Cancel</div>
+                <div class="column calendar-icon"><i class="fa-regular fa-calendar"></i></div>
+                <div class="column save-btn" onclick="saveEvent(3);">Add</div>
+            </div>
+            <div class="second-tooltip tooltip d-none"><i class="fa fa-circle-info"></i> Click "Add" to finalize</div>
+            <div class="list-bottom new-task-btn" data-list="3">&#65291;Add Card</div>
+        </div>
+    </div>
+
+    <div class="modal d-none" id="sliderModal">
+        <div class="modal-content">
+            <div class="calendar-ui">
+                <div class="column interval selected days">Days</div>
+                <div class="column interval weeks">Weeks</div>
+                <div class="column right p-5 blue-link" id="modalSave">Save</div>
+                <!-- 
+                1. user hits save and textarea converted to div
+                2. div contains due date
+                3. in this state, hitting add handles case that text area is already a div
+                4. handle if text area blank when user hits save
+                    * alternatively, if user hits calendar icon surface system alert demanding user enter data
+                5. handle clicking out of modal, hide modal and set modalOpen = false
+                    * add event listener to modal to detect clicks outside of its area
+                -->
+            </div>
+            <div class="slider">
+                <input id="numberSlider" type="range" value="15" min="0" max="25" />
+                <div class="labels">
+                    <span></span>
+                    <span>5</span>
+                    <span>10</span>
+                    <span>15</span>
+                    <span>20</span>
+                    <span>25</span>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
